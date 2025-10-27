@@ -27,3 +27,5 @@ def modificarLibro():
 def eliminarElemento():
     
 def realizarPrestamo():
+    
+def menu():
