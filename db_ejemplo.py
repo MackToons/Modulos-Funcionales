@@ -5,7 +5,7 @@
     o preparar de antemano las queries que necesitamos y llamarlas desde
     los otros modulos.
 '''
-
+from utilidades import fetching
 import sqlite3
 
 #Conectamos a la DB, y si no existe la crea
@@ -77,17 +77,25 @@ cursor.execute('''
 connection.commit()
 
 #Mostramos los usuarios ingresados
-print("Usuarios ingresados: \n")
-cursor.execute("SELECT * FROM usuarios")
-usuarios = cursor.fetchall()
+#print("Usuarios ingresados: \n")
+#cursor.execute("SELECT * FROM usuarios")
+#usuarios = cursor.fetchall()
 
-for usuario in usuarios:
-    print(f"ID: {usuario[0]}, Nombre: {usuario[1]} {usuario[2]}, Fecha de nacimiento: {usuario[3]}, Telefono: {usuario[4]}, Correo: {usuario[5]}\n")
+#for usuario in usuarios:
+#    print(f"ID: {usuario[0]}, Nombre: {usuario[1]} {usuario[2]}, Fecha de nacimiento: {usuario[3]}, Telefono: {usuario[4]}, Correo: {usuario[5]}\n")
 
 #Mostramos los libros ingresador
-print("Libros ingresados: \n")
-cursor.execute("SELECT * FROM libros")
-libros = cursor.fetchall()
+#print("Libros ingresados: \n")
+#cursor.execute("SELECT * FROM libros")
+#libros = cursor.fetchall()
 
-for libro in libros:
-    print(f"ID: {libro[0]}, ISBN: {libro[1]}, Titulo: {libro[2]}, Autor: {libro[3]}, Publicacion: {libro[5]}, Disponible: {libro[6]}\n")
+#for libro in libros:
+#    print(f"ID: {libro[0]}, ISBN: {libro[1]}, Titulo: {libro[2]}, Autor: {libro[3]}, Publicacion: {libro[5]}, Disponible: {libro[6]}\n")
+
+cursor.execute("SELECT * FROM usuarios;")
+tabla = fetching(cursor)
+
+for x in tabla:
+    for i in range(len(x)):
+        print(f"{x[i]} ")
+    print("\n")

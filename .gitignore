@@ -9,3 +9,7 @@
 .vscode
 .idea
 .DS_Store
+
+#Pruebas locales
+pruebas.py
+__pycache__/
