@@ -10,6 +10,6 @@
 .idea
 .DS_Store
 
-#Pruebas locales
+# Pruebas locales
 pruebas.py
 __pycache__/
