@@ -2,7 +2,7 @@
     Modulo de libros
 '''
 
-from utilidades import fetching
+from utils import fetching
 
 def mostrarLibros(cursor):
     libros = fetching(cursor)

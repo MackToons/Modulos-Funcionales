@@ -2,14 +2,14 @@
     Modulo de usuarios
 '''
 
-import utilidades
+import utils
 
 '''
     El sexto campo lo utilizamos para saltarnoslo,
     por que si esta en falso, es que se dio de baja
 '''
 def mostrarUsuarios(cursor):
-    usuarios = utilidades.fetching(cursor)
+    usuarios = utils.fetching(cursor)
     print("ID   |  Nombre   |  Fecha de nacimiento   |  Telefono   |  Correo\n")
     for usuario in usuarios:
         if usuario[6]:
@@ -23,14 +23,13 @@ def ingresarUsuario(conn, apellido, nombre, fecha_nac, telefono, correo):
     cursor.execute('''
         INSERT INTO usuarios(apellido, nombre, fecha_nac, telefono, correo)
         VALUES
-            (?,?,?,?,?)''',
-            (apellido, nombre, fecha_nac, telefono, correo))
+            (?,?,?,?,?)''', (apellido, nombre, fecha_nac, telefono, correo))
     cursor.commit()
     cursor.close()
 
 def modificarUsuario(conn, ID):
     cursor = conn.cursor()
-    actualizar = utilidades.ingresarDatos()
+    actualizar = utils.ingresarDatos()
     queries = []
 
     for pair in actualizar:
@@ -38,7 +37,7 @@ def modificarUsuario(conn, ID):
         queries.append((query, pair[1]))
 
     for pair in queries:
-        cursor.execute(f"{pair[0]}",(pair[1], id))
+        cursor.execute(f"{pair[0]}", (pair[1], id))
     cursor.commit()
     cursor.close()
 

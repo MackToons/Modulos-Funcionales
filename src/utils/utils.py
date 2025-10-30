@@ -16,7 +16,7 @@ def menu():
     print("Bienvenido a la biblioteca Virtal\n")
     print("1.Cargar usuario\n 2.Cargar Libro\n 3.Prestamos\n 4.Modificar\n 5.Busqueda\n 6.Salir\n")
     opc = input("Opcion: ")
-    
+
     match opc:
         case 1:
             menu()
@@ -61,3 +61,4 @@ def limpiarTerminal():
 
 def ingresarDatos():
     datos = []
+    return datos
